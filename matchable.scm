@@ -6,9 +6,13 @@
 
   ;; slot-ref type obj n
   ;; Returns the 'n'th field of the record 'obj'.
+  ;; 'n' might be a quoted symbol indicating a field name, we have to reject it
+  ;; since CHICKEN doesn't carry any information about the field names.
   (define-syntax slot-ref
     (syntax-rules ()
-      ((_ type obj n) (record-instance-slot obj n))))
+      ((_ type obj n) (if (fixnum? n)
+                          (record-instance-slot obj n)
+                          (error "Accessing fields by name is not supported")))))
 
   ;; slot-set! type obj n val
   ;; Sets the value of the 'n'th field of the record 'obj' to 'val'.

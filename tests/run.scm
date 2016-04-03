@@ -115,6 +115,16 @@
         'ok
         (match (make-my-box 'ok) (($ my-box x) x)))
 
+  (test "record with literals"
+        456
+        (match (make-point 123 456)
+          (($ point 123 x) x)
+          (else #f)))
+
+  (test-error "record with @ pattern should fail"
+        (match (make-point 123 456) ((@ point (x a) (y b)) 'ok)))
+
+
   (test "record nested"
         '(123 456 789)
         (match (make-point 123 '(456 789)) (($ point x (y z)) (list x y z))))
