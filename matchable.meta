@@ -7,4 +7,4 @@
  (author "Alex Shinn")
  (doc-from-wiki)
  (test-depends test)
- (files "matchable.release-info" "matchable.scm" "match-simple.scm" "matchable.setup" "matchable-test.scm" "matchable.meta" "match.scm"))
+ (files "matchable.release-info" "matchable.scm" "matchable.setup" "matchable.meta" "match.scm" "tests/run.scm"))
