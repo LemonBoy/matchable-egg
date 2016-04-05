@@ -1,4 +1,10 @@
-(module matchable *
+(module matchable
+  (match
+   match-lambda
+   match-lambda*
+   match-let
+   match-let*
+   match-letrec)
   (import scheme chicken)
   (use lolevel)
 
